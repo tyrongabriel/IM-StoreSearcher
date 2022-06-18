@@ -2,7 +2,7 @@
 
 
 # Environment Vairbales
-src/environment/*.ts
+src/environments/*.ts
 .env
 
 # Compiled output
