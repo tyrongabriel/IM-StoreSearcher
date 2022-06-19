@@ -5,17 +5,39 @@
   display: flex;
   align-items: center;
   left: 1rem;
-  width: 25vw;
-  min-width: 20rem;
+  width: 60vw;
+  min-width: 40rem;
   height: 100vh;
   background-color: transparent;
   z-index: 1;
+
+  &__detail {
+    display: inline-block;
+    background-color: $color-white;
+    flex: 1 1 auto;
+    height: max-content;
+    align-self: flex-start;
+    margin-left: 10px;
+    border-radius: $border-radius;
+    border: 1px solid $color-primaryBorder;
+    box-shadow: $shadow-down-right;
+    padding: 10px;
+
+    & > h3 {
+      margin: 0;
+    }
+    & > p {
+      margin: 0;
+      padding: 0;
+    }
+  }
 
   &__field {
     display: flex;
     flex-direction: column;
     min-width: inherit;
     width: 20vw;
+    min-width: 20rem;
     height: 100vh;
     background-color: $color-white;
     z-index: 1;

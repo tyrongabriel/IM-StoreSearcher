@@ -9,6 +9,7 @@ import data from '../../../assets/data/stores.json';
 })
 export class SearchFieldComponent implements OnInit {
   stores: Array<IStoreLocation> = data.stores;
+  selectedStoreLocation: IStoreLocation = null;
   constructor() {
     console.log(this.stores);
   }
@@ -17,6 +18,8 @@ export class SearchFieldComponent implements OnInit {
 
   onStoreLocationSelected(storeLocation: IStoreLocation) {
     this.storeLocationSelected.emit(storeLocation);
+    this.selectedStoreLocation =
+      this.selectedStoreLocation == storeLocation ? null : storeLocation;
   }
 
   ngOnInit(): void {}
