@@ -9,22 +9,28 @@ import { SearchFieldComponent } from './components/search-field/search-field.com
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { StoreLocationItemComponent } from './components/store-location-item/store-location-item.component';
+import { storeLocatorReducer } from './utils/states/store-locator/store-locator.reducer';
+import { StoreLocatorService } from './services/store-locator.service';
 
 @NgModule({
-  declarations: [AppComponent, SearchFieldComponent, StoreLocationItemComponent],
+  declarations: [
+    AppComponent,
+    SearchFieldComponent,
+    StoreLocationItemComponent,
+  ],
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
       apiKey: environment.GOOGLE_API_KEY,
     }),
     StoreModule.forRoot({
-      //storeLocator: StoreLocatorReducer,
+      storeLocator: storeLocatorReducer,
     }),
     StoreDevtoolsModule.instrument({
       autoPause: true,
     }),
   ],
-  providers: [],
+  providers: [StoreLocatorService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

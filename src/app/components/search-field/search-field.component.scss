@@ -2,6 +2,7 @@
 
 .wrapper {
   position: fixed;
+  pointer-events: none;
   display: flex;
   align-items: center;
   left: 1rem;
@@ -12,6 +13,7 @@
   z-index: 1;
 
   &__detail {
+    pointer-events: all;
     display: inline-block;
     background-color: $color-white;
     flex: 1 1 auto;
@@ -33,6 +35,7 @@
   }
 
   &__field {
+    pointer-events: all;
     display: flex;
     flex-direction: column;
     min-width: inherit;

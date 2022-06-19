@@ -1,6 +1,6 @@
 <div class="wrapper" (click)="onStoreLocationSelected()">
     <h3>{{ storeLocation.name }}</h3>
     <p>{{ storeLocation.address}}</p>
-    <p>{{storeLocation.postCode}}, {{storeLocation.city}}</p>
+    <p #test>{{storeLocation.postCode}}, {{storeLocation.city}}</p>
     <p>{{storeLocation.country }}</p>
 </div>

@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { map, Observable } from 'rxjs';
 
 import data from '../assets/data/stores.json';
+import { StoreLocatorFacade } from './utils/states/store-locator/store-locator.service';
 import { IStoreLocation } from './utils/types/storeLocation';
+import { IStoreLocator } from './utils/states/store-locator/store-locator.reducer';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +13,12 @@ import { IStoreLocation } from './utils/types/storeLocation';
 })
 export class AppComponent {
   title = 'IM-StoreSearcher';
-  stores: Array<IStoreLocation> = data.stores;
+  stores$: Observable<Array<IStoreLocation>>;
+  constructor(private storeLocatorFacade: StoreLocatorFacade) {
+    this.stores$ = storeLocatorFacade.storeLocator$.pipe(
+      map((storeLocator: IStoreLocator) => storeLocator.storeLocations)
+    );
+  }
 
   focusLat = 51.678418;
   focusLong = 7.809007;

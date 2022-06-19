@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
+import { StoreLocatorFacade } from 'src/app/utils/states/store-locator/store-locator.service';
 import { IStoreLocation } from 'src/app/utils/types/storeLocation';
 
 @Component({
@@ -7,7 +14,7 @@ import { IStoreLocation } from 'src/app/utils/types/storeLocation';
   styleUrls: ['./store-location-item.component.scss'],
 })
 export class StoreLocationItemComponent {
-  constructor() {}
+  constructor(public storeLocatorFacade: StoreLocatorFacade) {}
   @Input() storeLocation: IStoreLocation;
   @Output() storeLocationSelected = new EventEmitter<IStoreLocation>();
 
