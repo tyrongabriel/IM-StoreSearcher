@@ -1,3 +1,9 @@
-<agm-map [latitude]="latitude" [longitude]="longitude">
+<div>
+    <app-search-field (storeLocationSelected)="onStoreLocationSelected($event)"></app-search-field>
+    <agm-map [latitude]="focusLat" [longitude]="focusLong">
+        <agm-marker *ngFor="let storeLocation of stores" [latitude]="storeLocation.lat"
+            [longitude]="storeLocation.long">
+        </agm-marker>
 
-</agm-map>
+    </agm-map>
+</div>
