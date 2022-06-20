@@ -109,17 +109,19 @@ export class StoreLocatorService {
     return filteredStores;
   }
 
+  // Judges the Accuracy of the found item, based on how many of its parameters match the search text
   private getMatchAccuracy(storeLocation: IStoreLocation, searchText: string) {
     let accuracy: number = 0.0;
     Object.values(storeLocation).forEach((value) => {
       if (String(value)) {
         searchText.split(' ').forEach((word) => {
           accuracy +=
-            Number(String(value).includes(word)) *
-            (String(value).length / searchText.length);
+            Number(String(value).toLowerCase().includes(word.toLowerCase())) *
+            (String(value).length / searchText.toLowerCase().length);
         });
       }
     });
+    console.log(storeLocation.name, accuracy);
 
     return accuracy;
   }

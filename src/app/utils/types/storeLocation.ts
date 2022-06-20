@@ -5,7 +5,6 @@ export interface IStoreLocation {
   city: string;
   postCode: string;
   country: string;
-  countryCode: string;
   email: string;
   website?: string;
   phone: string;

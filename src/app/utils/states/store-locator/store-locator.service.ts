@@ -20,11 +20,15 @@ export class StoreLocatorFacade {
   }
 
   public changeSearchString(searchString: string) {
+    // Get the fitting stores based onthe searchString
     let stores = this.storeLocatorService.getStores(searchString);
+
+    // Change the Search to the new String and Stores
     this.store.dispatch(changeSearch(searchString, stores));
   }
 
   public changeSelectedStore(selectedStore: IStoreLocation) {
+    // Change the Selected Store
     this.store.dispatch(changeSelectedStore(selectedStore));
   }
 }

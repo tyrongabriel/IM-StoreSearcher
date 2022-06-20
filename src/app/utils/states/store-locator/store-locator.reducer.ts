@@ -4,6 +4,7 @@ import { changeSearch, changeSelectedStore } from './store-locator.actions';
 
 import data from '../../../../assets/data/stores.json';
 
+// Defines the Store for the StoreLocator
 export interface IStoreLocator {
   loading: boolean;
   searchText: string;

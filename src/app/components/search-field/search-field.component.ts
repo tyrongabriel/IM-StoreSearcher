@@ -40,10 +40,9 @@ export class SearchFieldComponent implements AfterViewInit {
   }
 
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
-  // @Output() storeLocationSelected = new EventEmitter<IStoreLocation>();
 
   ngAfterViewInit() {
-    // Get the Input Element and add an observable, so im able to add Debounce Time to the input,
+    // Get the Input Element and create an observable, so im able to add Debounce Time to the input,
     // after which i call the facade to dispatch the action of changeSearch
     this.searchText$ = fromEvent(this.searchInput.nativeElement, 'input');
     this.searchText$.pipe(debounceTime(300)).subscribe((e: InputEvent) => {

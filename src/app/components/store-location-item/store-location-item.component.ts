@@ -18,6 +18,7 @@ import { IStoreLocation } from 'src/app/utils/types/storeLocation';
 export class StoreLocationItemComponent implements AfterViewInit {
   selectedStore$: Observable<IStoreLocation>;
   isSelected: boolean = false;
+
   constructor(public storeLocatorFacade: StoreLocatorFacade) {
     this.selectedStore$ = this.storeLocatorFacade.storeLocator$.pipe(
       map((storeLocator: IStoreLocator) => storeLocator.selectedStore)
@@ -27,22 +28,18 @@ export class StoreLocationItemComponent implements AfterViewInit {
   @Input() storeLocation: IStoreLocation;
 
   ngAfterViewInit() {
-    // Subscribe to Selected Store, to see if this item is Selected
+    // Subscribe to Selected Store, to see if this item is Selected (After init so storeLocation is set)
     this.selectedStore$.subscribe((selectedStore) => {
       selectedStore == this.storeLocation
         ? (this.isSelected = true)
         : (this.isSelected = false);
-      //console.log(selectedStore, this.storeLocation, this.isSelected);
     });
   }
 
   onStoreLocationSelected() {
     // If this item is already selected, select none, if not, select the other
-
-    //console.log('selected', this.isSelected);
     this.storeLocatorFacade.changeSelectedStore(
       this.isSelected ? null : this.storeLocation
     );
-    //console.log('selected', this.isSelected);
   }
 }

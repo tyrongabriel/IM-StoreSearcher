@@ -1,79 +1,134 @@
 {
   "stores": [
     {
-      "name": "string",
-      "contact": "string",
-      "address": "string",
-      "city": "string",
-      "postCode": "string",
-      "country": "austria",
-      "countryCode": "AT",
-      "email": "string",
-      "website": "string",
-      "phone": "string",
-      "lat": 10.0,
-      "long": 10.0
+      "name": "ITEC Informationstechnologien Bregenz",
+      "contact": "Tyron Gabriel",
+      "address": "Hinterfeldgasse 19",
+      "city": "Bregenz",
+      "postCode": "6842",
+      "country": "Austria",
+      "email": "itec@informationstechnologien.com",
+      "website": "www.itecinformationstechnologien.com",
+      "phone": "+43 677 1234 5678",
+      "lat": 47.49162177808796,
+      "long": 9.724443598196336
     },
     {
-      "name": "string",
-      "contact": "string",
-      "address": "string",
-      "city": "string",
-      "postCode": "string",
-      "country": "austria",
-      "countryCode": "AT",
-      "email": "string",
-      "website": "string",
-      "phone": "string",
-      "lat": 11.0,
-      "long": 11.0
+      "name": "ITEC Informationstechnologien Bakı",
+      "contact": "Valmir Bekiri",
+      "address": "Koroğlu Rəhimov küçəsi 3",
+      "city": "Bakı",
+      "postCode": "1005",
+      "country": "Azerbaijan",
+      "email": "itec@informationstechnologien.com",
+      "website": "www.itecinformationstechnologien.com",
+      "phone": "+43 677 1234 5678",
+      "lat": 40.40391337986877,
+      "long": 49.85637059244842
     },
     {
-      "name": "string",
-      "contact": "string",
-      "address": "string",
-      "city": "austria",
-      "postCode": "string",
-      "country": "austria",
-      "countryCode": "AT",
-      "email": "string",
-      "website": "string",
-      "phone": "string",
-      "lat": 12.0,
-      "long": 12.0
+      "name": "ITEC Informationstechnologien Hohenems",
+      "contact": "Luca Nicolussi",
+      "address": "Kirchweg 5",
+      "city": "Hohenems",
+      "postCode": "6845",
+      "country": "Austria",
+      "email": "itec@informationstechnologien.com",
+      "website": "www.itecinformationstechnologien.com",
+      "phone": "+43 677 1234 5678",
+      "lat": 47.36160130807754,
+      "long": 9.667864347474906
     },
-
     {
-      "name": "string",
-      "contact": "string",
-      "address": "austria",
-      "city": "string",
-      "postCode": "austria",
-      "country": "belgium",
-      "countryCode": "AT",
-      "email": "string",
-      "website": "string",
-      "phone": "string",
-      "lat": 13.0,
-      "long": 13.0
+      "name": "ITEC Informationstechnologien Liechtenstein",
+      "contact": "Jeff Grud",
+      "address": "Städtle 3",
+      "city": "Bregenz",
+      "postCode": "9490",
+      "country": "Liechtenstein",
+      "email": "itec@informationstechnologien.com",
+      "website": "www.itecinformationstechnologien.com",
+      "phone": "+43 677 1234 5678",
+      "lat": 47.141111999799534,
+      "long": 9.521542442603659
+    },
+    {
+      "name": "ITEC Informationstechnologien Tokio",
+      "contact": "Leon Graber",
+      "address": "1 chōme 5-11 Himonya",
+      "city": "Tokyo",
+      "postCode": "152-0003",
+      "country": "Japan",
+      "email": "itec@informationstechnologien.com",
+      "website": "www.itecinformationstechnologien.com",
+      "phone": "+43 677 1234 5678",
+      "lat": 35.61881007787,
+      "long": 139.6924243595155
     }
   ],
   "centrals": [
     {
-      "continent": "europe",
+      "continent": "Europe",
       "store": {
-        "name": "Central",
-        "contact": "string",
-        "address": "string",
-        "city": "string",
-        "postCode": "string",
-        "country": "austria",
-        "countryCode": "AT",
-        "email": "string",
-        "website": "string",
-        "phone": "string",
-        "lat": 15.0,
-        "long": 15.0
+        "name": "ITEC Central Vienna",
+        "contact": "Martina Reutin",
+        "address": "Heldenplatz 1",
+        "city": "Wien",
+        "postCode": "1010",
+        "country": "Austria",
+        "email": "itec@europe.com",
+        "website": "www.itec.com",
+        "phone": "+43 677 1234 5678",
+        "lat": 48.20520764088901,
+        "long": 16.36346765730522
+      }
+    },
+    {
+      "continent": "asia",
+      "store": {
+        "name": "ITEC Central Peking",
+        "contact": "Wen Wen Lin",
+        "address": "Jingshan Front St. 4",
+        "city": "Dongchen, Beijing",
+        "postCode": "100009",
+        "country": "China",
+        "email": "itec@asia.com",
+        "website": "www.itec.com",
+        "phone": "+33 677 1234 5678",
+        "lat": 39.91689739390282,
+        "long": 116.39635731638167
+      }
+    },
+    {
+      "continent": "North America",
+      "store": {
+        "name": "ITEC Central Los Angeles",
+        "contact": "Leonhard Ohneberg",
+        "address": "Western Ave 2715 S",
+        "city": "Los Angeles",
+        "postCode": "CA 90018",
+        "country": "United States",
+        "email": "itec@na.com",
+        "website": "www.itec.com",
+        "phone": "+33 677 1234 5678",
+        "lat": 34.030682100595214,
+        "long": -118.3093674163549
+      }
+    },
+    {
+      "continent": "africa",
+      "store": {
+        "name": "ITEC Central Nigeria",
+        "contact": "Marvin Heine",
+        "address": "2X8X+5HC",
+        "city": "Birim",
+        "postCode": "740102",
+        "country": "Nigeria",
+        "email": "itec@europe.com",
+        "website": "www.itec.com",
+        "phone": "+33 677 1234 5678",
+        "lat": 10.015479050035811,
+        "long": 9.998848187057014
       }
     }
   ]
