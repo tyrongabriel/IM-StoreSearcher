@@ -33,7 +33,6 @@ export class AppComponent {
       if (storeLocation) {
         this.focusLat = storeLocation.lat;
         this.focusLong = storeLocation.long;
-        console.log(this.zoom);
 
         this.zoom = this.zoom + 10 - this.zoom;
       }

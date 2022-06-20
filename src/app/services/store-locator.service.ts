@@ -25,9 +25,7 @@ export class StoreLocatorService {
   private _countries: Array<ICountry> = countries;
   private _continentMap = continentMap;
   private _centrals: Array<ICentral> = data.centrals;
-  constructor() {
-    console.log(this._stores);
-  }
+  constructor() {}
 
   public getStores(searchText?: string): Array<IStoreLocation> {
     searchText = searchText.trim().toLowerCase();
@@ -121,7 +119,6 @@ export class StoreLocatorService {
         });
       }
     });
-    console.log(storeLocation.name, accuracy);
 
     return accuracy;
   }
