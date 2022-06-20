@@ -15,6 +15,10 @@ export class AppComponent {
   title = 'IM-StoreSearcher';
   stores$: Observable<Array<IStoreLocation>>;
   selectedStoreLocation$: Observable<IStoreLocation>;
+  focusLat = 51.678418;
+  focusLong = 7.809007;
+  zoom = 8;
+
   constructor(private storeLocatorFacade: StoreLocatorFacade) {
     this.stores$ = storeLocatorFacade.storeLocator$.pipe(
       map((storeLocator: IStoreLocator) => storeLocator.storeLocations)
@@ -28,10 +32,10 @@ export class AppComponent {
       if (storeLocation) {
         this.focusLat = storeLocation.lat;
         this.focusLong = storeLocation.long;
+        console.log(this.zoom);
+
+        this.zoom = this.zoom + 10 - this.zoom;
       }
     });
   }
-
-  focusLat = 51.678418;
-  focusLong = 7.809007;
 }

@@ -14,7 +14,9 @@ export interface IStoreLocator {
 let initialValue: IStoreLocator = {
   loading: false,
   searchText: '',
-  storeLocations: data.stores,
+  storeLocations: data.stores.concat(
+    data.centrals.map((central) => central.store)
+  ),
   selectedStore: null,
 };
 

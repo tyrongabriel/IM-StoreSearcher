@@ -25,22 +25,56 @@
       "email": "string",
       "website": "string",
       "phone": "string",
-      "lat": 10.0,
-      "long": 10.0
+      "lat": 11.0,
+      "long": 11.0
     },
     {
       "name": "string",
       "contact": "string",
       "address": "string",
-      "city": "string",
+      "city": "austria",
       "postCode": "string",
       "country": "austria",
       "countryCode": "AT",
       "email": "string",
       "website": "string",
       "phone": "string",
-      "lat": 10.0,
-      "long": 10.0
+      "lat": 12.0,
+      "long": 12.0
+    },
+
+    {
+      "name": "string",
+      "contact": "string",
+      "address": "austria",
+      "city": "string",
+      "postCode": "austria",
+      "country": "belgium",
+      "countryCode": "AT",
+      "email": "string",
+      "website": "string",
+      "phone": "string",
+      "lat": 13.0,
+      "long": 13.0
+    }
+  ],
+  "centrals": [
+    {
+      "continent": "europe",
+      "store": {
+        "name": "Central",
+        "contact": "string",
+        "address": "string",
+        "city": "string",
+        "postCode": "string",
+        "country": "austria",
+        "countryCode": "AT",
+        "email": "string",
+        "website": "string",
+        "phone": "string",
+        "lat": 15.0,
+        "long": 15.0
+      }
     }
   ]
 }
