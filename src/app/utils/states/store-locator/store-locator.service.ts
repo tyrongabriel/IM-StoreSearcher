@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { StoreLocatorService } from 'src/app/services/store-locator.service';
 import { IStoreLocation } from '../../types/storeLocation';
-import { changeSearch } from './store-locator.actions';
+import { changeSearch, changeSelectedStore } from './store-locator.actions';
 import { IStoreLocator } from './store-locator.reducer';
 
 @Injectable({
@@ -22,5 +22,9 @@ export class StoreLocatorFacade {
   public changeSearchString(searchString: string) {
     let stores = this.storeLocatorService.getStores(searchString);
     this.store.dispatch(changeSearch(searchString, stores));
+  }
+
+  public changeSelectedStore(selectedStore: IStoreLocation) {
+    this.store.dispatch(changeSelectedStore(selectedStore));
   }
 }

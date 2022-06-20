@@ -6,7 +6,15 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { fromEvent, Observable, debounceTime, last, map } from 'rxjs';
+import {
+  fromEvent,
+  Observable,
+  debounceTime,
+  last,
+  map,
+  exhaustMap,
+  async,
+} from 'rxjs';
 import { IStoreLocator } from 'src/app/utils/states/store-locator/store-locator.reducer';
 import { StoreLocatorFacade } from 'src/app/utils/states/store-locator/store-locator.service';
 import { IStoreLocation } from 'src/app/utils/types/storeLocation';
@@ -19,23 +27,20 @@ import data from '../../../assets/data/stores.json';
 })
 export class SearchFieldComponent implements AfterViewInit {
   stores$: Observable<Array<IStoreLocation>>;
-  selectedStoreLocation: IStoreLocation = null;
+  selectedStoreLocation$: Observable<IStoreLocation>;
   searchText$: Observable<Event>;
 
   constructor(public storeLocatorFacade: StoreLocatorFacade) {
     this.stores$ = storeLocatorFacade.storeLocator$.pipe(
       map((storeLocator: IStoreLocator) => storeLocator.storeLocations)
     );
+    this.selectedStoreLocation$ = storeLocatorFacade.storeLocator$.pipe(
+      map((storeLocator: IStoreLocator) => storeLocator.selectedStore)
+    );
   }
 
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
-  @Output() storeLocationSelected = new EventEmitter<IStoreLocation>();
-
-  onStoreLocationSelected(storeLocation: IStoreLocation) {
-    this.storeLocationSelected.emit(storeLocation);
-    this.selectedStoreLocation =
-      this.selectedStoreLocation == storeLocation ? null : storeLocation;
-  }
+  // @Output() storeLocationSelected = new EventEmitter<IStoreLocation>();
 
   ngAfterViewInit() {
     // Get the Input Element and add an observable, so im able to add Debounce Time to the input,

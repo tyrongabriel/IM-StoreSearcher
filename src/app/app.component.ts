@@ -14,17 +14,24 @@ import { IStoreLocator } from './utils/states/store-locator/store-locator.reduce
 export class AppComponent {
   title = 'IM-StoreSearcher';
   stores$: Observable<Array<IStoreLocation>>;
+  selectedStoreLocation$: Observable<IStoreLocation>;
   constructor(private storeLocatorFacade: StoreLocatorFacade) {
     this.stores$ = storeLocatorFacade.storeLocator$.pipe(
       map((storeLocator: IStoreLocator) => storeLocator.storeLocations)
     );
+    this.selectedStoreLocation$ = storeLocatorFacade.storeLocator$.pipe(
+      map((storeLocator: IStoreLocator) => storeLocator.selectedStore)
+    );
+
+    this.selectedStoreLocation$.subscribe((storeLocation) => {
+      // Only get Long/Lat if the store actually exists and not try to access prop of null(for example if we select none)
+      if (storeLocation) {
+        this.focusLat = storeLocation.lat;
+        this.focusLong = storeLocation.long;
+      }
+    });
   }
 
   focusLat = 51.678418;
   focusLong = 7.809007;
-
-  onStoreLocationSelected(storeLocation: IStoreLocation) {
-    this.focusLat = storeLocation.lat;
-    this.focusLong = storeLocation.long;
-  }
 }

@@ -1,29 +1,59 @@
 <div class="wrapper">
-    <div class="wrapper__field">
-        <div class="wrapper__field__search-bar">
-            <input type="text" placeholder="Search for a location" class="wrapper__field__search-bar__input-field"
-                #searchInput>
-        </div>
-        <ul class="wrapper__field__list">
-            <li class="wrapper__field__list__item" *ngFor="let storeLocation of stores$ | async;">
-                <app-store-location-item [storeLocation]="storeLocation"
-                    (storeLocationSelected)="onStoreLocationSelected($event)" class="wrapper__field__list__item__store">
-                </app-store-location-item>
-            </li>
-        </ul>
+  <div class="wrapper__field">
+    <div class="wrapper__field__search-bar">
+      <input
+        type="text"
+        placeholder="Search for a location"
+        class="wrapper__field__search-bar__input-field"
+        #searchInput
+      />
     </div>
-    <div class="wrapper__detail" *ngIf="selectedStoreLocation">
-        <h3 class="wrapper__detail__title">{{ selectedStoreLocation.name }}</h3>
-        <p class="wrapper__detail__address">{{ selectedStoreLocation.address }}</p>
-        <p class="wrapper__detail__post-code-city">{{ selectedStoreLocation.postCode }}, {{ selectedStoreLocation.city
-            }}</p>
-        <p class="wrapper__detail__country">{{ selectedStoreLocation.country }} ({{selectedStoreLocation.countryCode}})
-        </p>
-        <p class="wrapper__detail__contact" *ngIf="selectedStoreLocation.contact">Contact:
-            {{selectedStoreLocation.contact}}</p>
-        <p class="wrapper__detail__phone">Phone: {{selectedStoreLocation.phone}}</p>
-        <p class="wrapper__detail__email">E-Mail: {{selectedStoreLocation.email}}</p>
-        <p class="wrapper__detail__website" *ngIf="selectedStoreLocation.website">Website:
-            {{selectedStoreLocation.website}}</p>
-    </div>
+    <ul class="wrapper__field__list">
+      <li
+        class="wrapper__field__list__item"
+        *ngFor="let storeLocation of stores$ | async"
+      >
+        <app-store-location-item
+          [storeLocation]="storeLocation"
+          class="wrapper__field__list__item__store"
+        >
+        </app-store-location-item>
+      </li>
+    </ul>
+  </div>
+  <div class="wrapper__detail" *ngIf="selectedStoreLocation$ | async">
+    <h3 class="wrapper__detail__title">
+      {{ (selectedStoreLocation$ | async).name }}
+    </h3>
+    <p class="wrapper__detail__address">
+      {{ (selectedStoreLocation$ | async).address }}
+    </p>
+    <p class="wrapper__detail__post-code-city">
+      {{ (selectedStoreLocation$ | async).postCode }},
+      {{ (selectedStoreLocation$ | async).city }}
+    </p>
+    <p class="wrapper__detail__country">
+      {{ (selectedStoreLocation$ | async).country }} ({{
+        (selectedStoreLocation$ | async).countryCode
+      }})
+    </p>
+    <p
+      class="wrapper__detail__contact"
+      *ngIf="(selectedStoreLocation$ | async).contact"
+    >
+      Contact: {{ (selectedStoreLocation$ | async).contact }}
+    </p>
+    <p class="wrapper__detail__phone">
+      Phone: {{ (selectedStoreLocation$ | async).phone }}
+    </p>
+    <p class="wrapper__detail__email">
+      E-Mail: {{ (selectedStoreLocation$ | async).email }}
+    </p>
+    <p
+      class="wrapper__detail__website"
+      *ngIf="(selectedStoreLocation$ | async).website"
+    >
+      Website: {{ (selectedStoreLocation$ | async).website }}
+    </p>
+  </div>
 </div>
