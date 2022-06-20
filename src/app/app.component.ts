@@ -15,6 +15,7 @@ export class AppComponent {
   title = 'IM-StoreSearcher';
   stores$: Observable<Array<IStoreLocation>>;
   selectedStoreLocation$: Observable<IStoreLocation>;
+  selectedStoreLocation: IStoreLocation;
   focusLat = 51.678418;
   focusLong = 7.809007;
   zoom = 8;
@@ -36,6 +37,14 @@ export class AppComponent {
 
         this.zoom = this.zoom + 10 - this.zoom;
       }
+      this.selectedStoreLocation = storeLocation;
     });
+  }
+
+  onStoreLocationSelected(storeLocation: IStoreLocation) {
+    // If this item is already selected, select none, if not, select the other
+    this.storeLocatorFacade.changeSelectedStore(
+      storeLocation == this.selectedStoreLocation ? null : storeLocation
+    );
   }
 }
