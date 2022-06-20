@@ -1,4 +1,4 @@
-const { writeFile } = require('fs');
+const { writeFile, mkdir } = require('fs');
 const { argv } = require('yargs');
 // read environment variables from .env file
 require('dotenv').config();
@@ -6,9 +6,8 @@ require('dotenv').config();
 // read the command line arguments passed with yargs
 const environment = argv.environment;
 const isProduction = environment === 'prod';
-const targetPath = isProduction
-  ? `./src/environments/environment.prod.ts`
-  : `./src/environments/environment.ts`;
+const targetDirectory = './src/environments/';
+const targetFile = isProduction ? `environment.prod.ts` : `environment.ts`;
 
 if (!process.env['GOOGLE_API_KEY']) {
   console.error('All the required environment variables were not provided!');
@@ -23,9 +22,17 @@ export const environment = {
 };
 `;
 // write the content to the respective file
-writeFile(targetPath, environmentFileContent, function (err) {
-  if (err) {
-    console.log(err);
-  }
-  console.log(`Wrote variables to ${targetPath}`);
+
+mkdir(targetDirectory, { recursive: true }, (err) => {
+  if (err) throw err;
 });
+writeFile(
+  `${targetDirectory}${targetFile}`,
+  environmentFileContent,
+  function (err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(`Wrote variables to ${targetDirectory + targetFile}`);
+  }
+);
